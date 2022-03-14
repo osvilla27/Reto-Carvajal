@@ -17,5 +17,6 @@ $ python manage.py runserver
 Verificar que la API este funcionando en http://127.0.0.1:8000/
 
 Para ver el panel de administración ingresar a http://127.0.0.1:8000/admin con las credenciales: 
-
+```
 Usuario: admin@bambuco.com Password:12345678
+```
