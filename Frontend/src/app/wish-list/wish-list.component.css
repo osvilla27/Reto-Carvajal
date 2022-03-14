@@ -1,0 +1,14 @@
+.btn{
+    color: red;
+}
+
+.btn:hover{
+    color: black;
+}
+.table .btn{
+    color: white;
+}
+
+.btn:hover{
+    color: black;
+}

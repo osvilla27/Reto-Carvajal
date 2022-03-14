@@ -1,0 +1,115 @@
+
+<div class="row justify-content-center p-4">
+    <div class="content-login">
+        <div class="card" style="width: 24rem;">
+            <div class="alert alert-danger" *ngIf="error">
+                <p>{{error}}</p>
+            </div>
+            <div class="alert alert-success" *ngIf="success">
+                <p>{{success}}</p>
+            </div>
+            <div class="card-body">
+                <div class="logo mb-5">
+                    <img src="../../assets/img/logo.png"/>
+                </div>
+                <div class="col" *ngIf="isLoginMode">
+                    <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
+                        
+                        <div class="form-floating mb-4">
+                            <input type="email" 
+                                class="form-control" 
+                                placeholder="name@example.com"
+                                type="text"
+                                id="email"
+                                name="email"
+                                formControlName="email">
+                            <label for="floatingInput">Correo Electrónico</label>
+                            <span class="help-block" style="color: red;" *ngIf="!loginForm.get('email').valid && loginForm.get('email').touched">Ingrese un correo válido!</span>
+                          </div>
+                          <div class="form-floating mb-3">
+                            <input type="password"
+                                type="password"
+                                id="password"
+                                name="password"
+                                formControlName="password"
+                                class="form-control">
+                            <label for="floatingPassword">Contraseña</label>
+                            <span class="help-block" style="color: red;" *ngIf="!loginForm.get('password').valid && loginForm.get('password').touched">Campo requerido!</span>
+                          </div>
+                        
+                        <div class="row d-flex p-2">
+                            <button class="btn btn-success mb-4" type="submit" [disabled]="!loginForm.valid">Iniciar Sesión</button>
+                            <button class="btn btn-primary" type="button" (click)="onSwitch()">Registrarse</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="col" *ngIf="!isLoginMode">
+                    <form [formGroup]="signupForm" (ngSubmit)="onSignup()" >
+                        <div class="form-floating mb-3">
+                            <input 
+                            type="text"
+                            id="name"
+                            name="name"
+                            formControlName="name"
+                            class="form-control"
+                            >
+                            <label for="floatingInput">Nombre</label>
+                            <span class="help-block" style="color: red;" *ngIf="!signupForm.get('name').valid && signupForm.get('name').touched">Field Required</span>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input
+                            type="text"
+                            id="email"
+                            name="email"
+                            formControlName="email"
+                            class="form-control"
+                            >
+                            <label for="floatingInput">Correo electrónico</label>
+                            <span class="help-block" style="color: red;" *ngIf="!signupForm.get('email').valid && signupForm.get('email').touched">Please Enter a valid email!</span>
+                        </div>
+                        <div formGroupName="passwords">
+                            <div class="form-floating mb-3">
+                                <input 
+                                type="password"
+                                id="password"
+                                name="password"
+                                formControlName="password"
+                                class="form-control"
+                                >
+                                <label for="floatingInput">Contraseña</label>
+                                <span class="help-block" style="color: red;" *ngIf="!signupForm.get('passwords.password').valid && signupForm.get('passwords.password').touched">
+                                    Campo requerido!</span>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <input 
+                                type="password"
+                                id="confirmpassword"
+                                formControlName="confirmpassword"
+                                name="confirmpassword"
+                                class="form-control"
+                                >
+                                <label for="floatingInput">Comfirmar contraseña</label>
+                                <span class="help-block" style="color: red;" *ngIf="!signupForm.get('passwords.confirmpassword').valid && signupForm.get('passwords.confirmpassword').touched">
+                                    Campo requerido!</span>
+                                    <span class="help-block" style="color: red;" *ngIf="signupForm.get('passwords').errors?.notsame">
+                                    Las contraseñas deben ser las mismas!</span>
+                                    
+                            </div>
+                        </div>
+                        <div class="row d-flex p-2">
+                            
+                            <button class="btn btn-primary mb-4" type="button" [disabled]="!signupForm.valid" (click)="onSwitch()">Enviar</button>
+                            <!-- <a class="btn btn-success" routerLink="/auth">Iniciar Sesión</a> -->
+                        </div>
+                        <div>
+                           
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+

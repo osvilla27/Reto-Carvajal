@@ -1,0 +1,92 @@
+ <div>
+
+ 
+ <div *ngIf="viewMode; else editable">
+    <div *ngIf="currentWishList.id">
+      <h4>Wish List</h4>
+      <div>
+        <label><strong>Title:</strong></label> {{ currentWishList.user }}
+      </div>
+      <div>
+        <label><strong>Description:</strong></label>
+        {{ currentWishList.product }}
+      </div>
+      <div>
+        <label><strong>Status:</strong></label>
+        {{ currentWishList.published ? "Published" : "Pending" }}
+      </div>
+      <a
+        class="badge badge-warning"
+        routerLink="/wishlist/{{ currentWishList.id }}"
+      >
+        Edit
+      </a>
+    </div>
+    <div *ngIf="!currentWishList">
+      <br />
+      <p>Please click on a WishList...</p>
+    </div>
+  </div>
+
+  <ng-template #editable>
+    <div *ngIf="currentWishList.id" class="edit-form">
+      <h4>Wish List</h4>
+      <form>
+        <div class="form-group">
+          <label for="title">Title</label>
+          <input
+            type="text"
+            class="form-control"
+            id="user"
+            [(ngModel)]="currentWishList.user"
+            name="user"
+          />
+        </div>
+        <div class="form-group">
+          <label for="description">Description</label>
+          <input
+            type="text"
+            class="form-control"
+            id="description"
+            [(ngModel)]="currentWishList.product"
+            name="description"
+          />
+        </div>
+        <div class="form-group">
+          <label><strong>Status:</strong></label>
+          {{ currentWishList.published ? "Published" : "Pending" }}
+        </div>
+      </form>
+      <button
+        class="badge badge-primary mr-2"
+        *ngIf="currentWishList.published"
+        (click)="updatePublished(false)"
+      >
+        UnPublish
+      </button>
+      <button
+        *ngIf="!currentWishList.published"
+        class="badge badge-primary mr-2"
+        (click)="updatePublished(true)"
+      >
+        Publish
+      </button>
+      <button class="badge badge-danger mr-2" (click)="deleteWishList()">
+        Delete
+      </button>
+      <button
+        type="submit"
+        class="badge badge-success mb-2"
+        (click)="updateWishList()"
+      >
+        Update
+      </button>
+      <p>{{ message }}</p>
+    </div>
+    <div *ngIf="!currentWishList.id">
+      <br />
+      <p>Cannot access this WishList...</p>
+    </div>
+  </ng-template>
+
+

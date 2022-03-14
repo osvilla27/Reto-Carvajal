@@ -1,0 +1,38 @@
+.content-login .card {
+    max-width: 380px;
+    min-height: 500px;
+    margin: 80px auto;
+    padding: 30px 30px 30px 30px;
+    border: none;
+    background-color: #ecf0f3;
+    border-radius: 15px;
+    box-shadow: 13px 13px 20px #cbced1, -13px -13px 20px #fff
+}
+.content-login input {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 5px 5px 5px #cbced1, -13px -13px 20px #fff
+}
+.content-login button {
+    padding: 10px 10px;
+    border-radius: 10px;
+    box-shadow: 10px 10px 20px #cbced1, -13px -13px 20px #fff
+}
+.logo {
+    width: 100px;
+    margin: auto
+}
+
+.logo img {
+    width: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    box-shadow: 0px 0px 0px #5f5f5f, 0px 0px 0px 5px #ecf0f3, 8px 8px 15px #a7aaa7, -8px -8px 15px #fff
+}
+
+@media(max-width: 350px) {
+    .content-login .card {
+        margin: 20px 20px;
+        padding: 30px 15px 15px 15px
+    }
+}

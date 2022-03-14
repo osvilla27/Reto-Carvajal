@@ -1,0 +1,16 @@
+
+
+.add-wishlist :hover {
+    height: 70px;
+}
+
+.add-wishlist img {
+    height: 45px;
+}
+
+.alert {
+    background-color: azure;
+    color: black;
+    font-size: small;
+    padding: auto;
+}

@@ -1,0 +1,22 @@
+
+<div class="row">
+    <div class="col col-md-5 pt-4">
+        <div class="card">
+            <h1>Bienvenido</h1>
+            <h4>{{user.name|titlecase}}</h4>
+            <hr>
+            <p>Has iniciado sesión con la cuenta:</p>
+            <h5>{{user.email}}</h5>
+        </div>
+        
+    </div>
+    <div class="col col-md-7 pt-4">
+        <div class="table">
+            <app-wish-list
+        [email]="user.email"
+        [user_i]="user.id"
+        >
+        </app-wish-list>
+        </div>
+    </div>
+</div>

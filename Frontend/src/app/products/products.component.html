@@ -1,0 +1,80 @@
+<div class="container mt-5">
+    <div class="input-group mb-3">
+        <!-- <input
+          type="text"
+          class="form-control"
+          placeholder="Search by title"
+          [(ngModel)]="title"
+        /> 
+        <div class="input-group-append">
+          <button
+            class="btn btn-outline-secondary"
+            type="button"
+            (click)="searchTitle()"
+          >
+            Search
+          </button>
+        </div> -->
+    </div>
+
+    <div class="row">
+        <div class="col-md-4 col-lg-3 mb-5" *ngFor="let product of products; let i = index">
+            <div class="product">
+                <div class="card">
+                    <div class="row g-0">
+                        <div class="add-wishlist">
+                            
+                            <app-add-wish-list 
+                            [product]="product.title"
+                            >
+                            </app-add-wish-list>
+                        </div>
+                        <img src="{{ product.image }}" class="img-product">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between">
+                                <div class="col">
+                                    <h5>{{ product.title }}</h5>
+                                </div>
+                                <div class="d-flex flex-row-reverse bd-highligh">
+                                    <span>$ {{product.price}}</span>
+                                </div>
+                            </div>
+                            <p>{{ product.description }}</p>
+
+                            <div class="row d-flex">
+                                <div class="col d-flex">
+                                    <div class="col">
+                                        <h6>Color:</h6>
+                                    </div>
+                                    <div class="col" *ngFor="let color of product.colors; let i = index">
+                                        <p class="text-muted" *ngFor="let clr of colors; let i = index">
+                                            <small  *ngIf="clr.id==color">{{ clr.name }}</small>
+                                        </p>
+                                    </div>
+                                </div>
+                                
+                                <div class="row d-flex">
+                                    <div class="col">
+                                        <h6>Talla:</h6>
+                                    </div>
+                                    <div class="col"  *ngFor="let size of product.sizes; let i = index">
+                                        <p class="card-text" *ngFor="let sz of sizes; let i = index">
+                                             <small *ngIf="sz.id==size">{{sz.name}}</small>
+                                        </p>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                            <div class="container">
+                                <button class="btn btn-primary" type="button">
+                                    Comprar
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

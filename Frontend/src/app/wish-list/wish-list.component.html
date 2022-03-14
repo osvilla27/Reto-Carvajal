@@ -1,0 +1,65 @@
+
+<div *ngIf="record; else notRecort">
+  
+  <div class="row">
+    <div class="col">
+      <table class="table">
+        <thead class="table-dark">
+          <tr>
+            <th scope="col">PRODUCTO</th>
+            <th scope="col">DETALLES</th>
+            <th scope="col">CANTIDAD</th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr  *ngFor="let wishList of wishListUser; let i = index">
+            <th scope="row">{{wishList.product}}</th>
+            <td>Color: {{ wishList.color }} Talla: {{ wishList.size }}</td>
+            <td>{{wishList.quantity}}</td>
+            
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <button  class="btn" (click)="recordValue()">
+    No ver historial 
+  </button>
+</div>
+
+  <ng-template #notRecort>
+  <div class="row">
+    <div class="col">
+      <table class="table">
+        <thead class="table-dark">
+          <tr>
+            <th scope="col">PRODUCTO</th>
+            <th scope="col">DETALLES</th>
+            <th scope="col">CANTIDAD</th>
+            
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr  *ngFor="let wishList of wishListUserTrue; let i = index">
+            <th scope="row">{{wishList.product}}</th>
+            <td>Color: {{ wishList.color }} Talla: {{ wishList.size }} </td>
+            <td>{{wishList.quantity}} </td>
+            
+            <td><button class="btn btn-sm btn-danger" (click)="removeWishList(i)">
+              X
+            </button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <button class="btn" (click)="recordValue()">
+    Ver historial
+  </button>
+  </ng-template>
+
+
+
+

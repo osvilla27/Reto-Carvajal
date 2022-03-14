@@ -1,0 +1,18 @@
+
+<div class="add-wishlist" *ngIf="isAuthenticated">
+  <a (click)="addWishList()">
+    <img src="../../../assets/img/add-wish-list.png" class="ml-2">
+  </a>
+</div>
+
+<div class="add-wishlist" *ngIf="!isAuthenticated">
+  <!-- Button trigger modal -->
+  <a data-bs-toggle="modal" (click)="goLogin()">
+    <img src="../../../assets/img/add-wish-list.png" class="ml-2">
+  </a>
+  <div class="alert"  *ngIf="message">
+    <a style="cursor: pointer;" routerLink="/auth" *ngIf="!isAuthenticated">Inicia Sesión</a> para agregar a preferidos!
+  </div>
+  
+</div>
+

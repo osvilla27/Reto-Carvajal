@@ -1,0 +1,9 @@
+<div *ngFor="let color of colors; let i = index"
+[class.active]="i == currentIndex">
+     {{color.name}}
+    
+     
+</div>
+<button (click)="setColor(1)">
+    color
+</button>
