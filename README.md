@@ -21,3 +21,14 @@ Para ver el panel de administración ingresar a http://127.0.0.1:8000/admin con 
 ```
 Usuario: admin@bambuco.com Password:12345678
 ```
+
+# Frontend 
+
+El frontend está desarrollado en Angular.
+
+En una nueva terminal ubicarse dentro de la carpeta Frontend y ejecutar los siguientes comandos 
+```
+npm install
+ng server -o 
+```
+Si todo corrio bien se abrirá en le navegador la dirección http://localhost:4200/
